@@ -1,0 +1,10 @@
+{
+  "require": {
+    "phalcon/devtools": "dev-master",
+    "phalcon/incubator": "dev-master",
+    "everyman/neo4jphp": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.4.*"
+  }
+}
