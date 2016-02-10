@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-define('APP_PATH', realpath('./../'));
+define('APP_PATH', realpath(__DIR__.'/../../'));
 
 use Phalcon\Di;
 

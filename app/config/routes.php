@@ -46,9 +46,22 @@ $router->add(
     ['GET']
 );
 
-$router->add("/users/{user_id}/friends-tree", 'Users::friendsTree', ['GET']);
-$router->add("/users/{user_id}/friends", 'Users::addFriend', ['POST']);
-$router->add("/users/{user_id}/friends/{friend_id}", 'Users::friendship', ['PUT']);
+$router->add(
+    "/users/{user_id}/friends-tree",
+    'Users::friendsTree',
+    ['GET']
+);
 
-//$router->handle();
+$router->add(
+    "/users/{user_id}/friends",
+    'Users::addFriend',
+    ['POST']
+);
+
+$router->add(
+    "/users/{user_id}/friends/{friend_id}",
+    'Users::friendship',
+    ['PUT']
+);
+
 return $router;
