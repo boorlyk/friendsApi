@@ -5,11 +5,11 @@ php55, redis, phpunit, phpredis, phalcon framework
 How to install phalcon framework:
 https://docs.phalconphp.com/en/latest/reference/install.html
 
-To install the rest of stuff run "composer install --dev" in Terminal
+To install the rest of stuff run "composer install --dev"
 
 Configuration file path is app/config/config.php
 
-To generate data run "php ./app/commands/generateDb.php" in Terminal
+To generate data run "php ./app/commands/generateDb.php"
 
 Routes:
 
