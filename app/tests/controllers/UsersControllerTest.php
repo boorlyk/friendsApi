@@ -8,46 +8,6 @@ use Phalcon\Mvc\Dispatcher;
 
 class UsersControllerTest extends MainTestCase
 {
-
-    public function testAll()
-    {
-
-        $i = 0;
-        while($i<10000){
-            $url = '/users';
-            $name = 'UT' . rand(999, 9999) . '-' . microtime();
-            $response = $this->load($url, "POST", ['name' => $name]);
-            error_log($i);
-            $i++;
-        }
-
-        $i = 0;
-
-        while ($i < 10000000) {
-            $userService = new UsersService();
-            $userEntity = $userService->findRandUser();
-            $friendUserEntity = $userService->findRandUser();
-
-
-            $userId = $userEntity->getId();
-            $url = '/users/' . $userId . '/friends';
-            $params = ['friend_id' => $friendUserEntity->getId()];
-
-
-            $this->load($url, 'POST', $params);
-
-            $url = '/users/' . $userEntity->getId() . '/friends/' . $friendUserEntity->getId();
-            $params = ['accept' => true];
-
-
-            $this->load($url, 'PUT', $params);
-            error_log($i);
-            $i++;
-        }
-
-        die;
-    }
-
     public function testAddUser()
     {
         $i = 0;
