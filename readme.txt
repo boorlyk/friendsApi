@@ -2,14 +2,14 @@ Required:
 
 php55, redis, phpunit, phpredis, phalcon framework
 
-Instruction to install phalcon framework:
+How to install phalcon framework:
 https://docs.phalconphp.com/en/latest/reference/install.html
 
-All other stuff will be installed with "composer install --dev"
+To install the rest of stuff run "composer install --dev" in Terminal
 
 Configuration file path is app/config/config.php
 
-To generate data run "php ./app/commands/generateDb.php"
+To generate data run "php ./app/commands/generateDb.php" in Terminal
 
 Routes:
 
@@ -22,7 +22,7 @@ Routes:
 
 Comments
 
-At first for storing users and relations was used Redis, but on big amount of relations(10k users and 100k relations)
-it's started to be a problem to get friends of friends on N depth. I Decided to try graph database neo4j to compare,
-but after implementing it, i figured out that neo4j works slower than redis on the same data (meybe the problem
-in envirement?)
+I started with redis to store users and relations. While testing big numbers of relations (10k users and 100k relations)
+it took quite long to get friends of friends on N depth. I decided to try graph database neo4j to compare the measures.
+After implementing, I figured out that neo4j works slower (~4 times) than redis on the same data (the issue may be related
+to the environment).
