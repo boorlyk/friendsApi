@@ -67,9 +67,9 @@ class UsersController extends RestController
     {
 
         $userId = $this->dispatcher->getParam('user_id');
-        $nestingLevel = $this->request->get('n',null,10);
+        $nestingLevel = $this->request->get('n', null, 10);
         $service = new UsersService();
-        $levels = $service->friendsGraph($userId,$nestingLevel);
+        $levels = $service->friendsGraph($userId, $nestingLevel);
         return $this->returnResult($levels);
     }
 
@@ -93,8 +93,14 @@ class UsersController extends RestController
     {
         $userId = $this->dispatcher->getParam('user_id');
         $friendId = $this->dispatcher->getParam('friend_id');
-        $acceptFriendship = $this->request->get('accept');
+        $acceptFriendship = $this->request->getPut('accept');
 
+        /**
+         * for unit test, becuse with phalcon framework it's not ease emulate PUT request
+         */
+        if ($acceptFriendship === null) {
+            $acceptFriendship  = $_REQUEST['accept'];
+        }
         $service = new UsersService();
         $service->acceptFriendRequest($userId, $friendId, (bool)$acceptFriendship);
         $result = [''];

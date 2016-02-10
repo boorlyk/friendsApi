@@ -34,6 +34,6 @@ try {
         'result'        => [],
         'error_message' => $e->getMessage()
     ];
-    json_encode($result);
     error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+    echo json_encode($result);
 }
